@@ -22,7 +22,7 @@ public class EmailService {
         props.put("mail.smtp.port", "587");
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("romazzz777@gmail.com", "14112002asdfghlol228romanpp");
+                return new PasswordAuthentication("romazzz777@gmail.com", "***");
             }
         });
         Message msg = new MimeMessage(session);
