@@ -1,0 +1,103 @@
+.container-red {
+    /*background: #ec3b14;*/
+    background: #ff0000;
+}
+
+.white-color {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #FFFFFF;
+    margin-right: 22px;
+    font-size: 106%;
+}
+
+.special-white {
+    color: #FFFFFF;
+    font-size: 106%;
+}
+
+.special-yellow {
+    color: #ffaa00;
+    font-size: 116%;
+    font-weight: bold;
+}
+
+.my-yellow {
+    color: #ffa200;
+}
+
+.my-orange {
+    background: #ff5000 !important;
+}
+
+.for-price {
+    color: #626262;
+    font-weight: bold;
+}
+
+#more {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+#to-basket {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+#basket-head {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.basket-head-yellow {
+    background: #ffa200 !important;
+}
+
+.basket-yellow {
+    color: #ffaa00;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.del {
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */
+}
+
+.del:hover {
+    background: rgb(232,95,76);
+} /* при наведении курсора мышки */
+
+.del:active {
+    background: rgb(152,15,0);
+} /* при нажатии */
+
+.my-red {
+    color: #ffaa00;
+    font-weight: bold;
+}
+
+#checkout {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+#more1 {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+#more2 {
+    font-weight: bold;
+    font-size: 90%;
+}
+
+#reg {
+    font-weight: bold;
+    font-size: 80%;
+}

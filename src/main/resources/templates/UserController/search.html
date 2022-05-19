@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>&#10084;ZOOLOVE</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+
+<nav class="container-red navbar fixed-top navbar-expand-lg navbar-light scrolling-navbar">
+    <div class="container">
+        <a href="/" class="navbar-brand waves-effect">
+            <strong class="orange-text" style="font-size: 30px; font-weight: bold;">
+                <span class="my-yellow">&#10084;ZOOLOVE</span>
+            </strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-conntrols="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a href="/" class="nav-link waves-effect"><span class="special-white">Главная</span></a>
+                </li>
+                <li class="nav-item" th:if="${userRole} == 'GUEST'">
+                    <a href="/sign" class="nav-link waves-effect"><span class="white-color">Регистрация</span></a>
+                </li>
+                <li class="nav-item" th:if="${userRole} == 'GUEST'">
+                    <a href="/login" class="nav-link waves-effect"><span class="white-color">Войти</span></a>
+                </li>
+                <li class="nav-item" th:if="${userRole} == 'USER'">
+                    <a href="/logout" class="nav-link waves-effect"><span class="white-color">Выйти</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav nav-flex-icon">
+                <li class="nav-item">
+                    <a href="/basket" class="nav-link waves-effect">
+                        <span class="badge red z-depth-1 mr-1">1</span>
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="white-color clearfix d-none d-sm-inline-block">Корзина</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<img src="img/buffalo1.jpg" alt="" class="lol d-block w-100">
+
+<main>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning mdb-color mt-3 mb-5">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nextNav" aria-conntrols="nextNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="white-color collapse navbar-collapse" id="nextNav">
+                <ul class="white-color navbar-nav mr-auto">
+                    <li class="nav-item" th:each="type:${types}">
+                        <a class="white-color" th:href="@{/products(typeId=${type.getId()})}"  th:text="${type.getName()}"></a>
+                    </li>
+                </ul>
+                <form class="form-inline" th:method="GET" th:action="@{/search}">
+                    <div class="md-form my-0">
+                        <input type="search" class="form-control mr-sm-2" placeholder="Поиск..." name="name" aria-label="Поиск">
+                    </div>
+                </form>
+            </div>
+        </nav>
+
+        <div class="row gx-5">
+            <h5 th:if="${products.isEmpty()==true}" style="color: #eb140a; font-weight: bold;">По Вашему запросу ничего не найдено!</h5>
+            <div class="card col col-sm-3 mb-4" style="margin-right: 60px;" th:each="product : ${products}">
+                <div class="">
+                    <img class="card-img-top" height="250px" th:src="@{${'img/'+product.getId()+'.jpg'}}" alt="">
+                </div>
+                <div class="card-body text-center">
+                    <h5 th:text="${product.getName()}" style="font-weight: bold;">Name</h5>
+                    <h5 class="for-price" th:text="${product.getPrice()+' ₽'}">Price</h5>
+                    <a th:href="@{/product(productId=${product.getId()})}" class="btn btn-warning" id="more2">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+
+</body>
+</html>
